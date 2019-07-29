@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="/socket.io/socket.io.js"></script>
     <style>
@@ -25,8 +26,8 @@
     <div class="container">
         <div id="userFormArea" class="row">
             <div class="col-md-12">
-                <form id="messageForm">
-                    <div class="user-group"></div>
+                <form id="userForm">
+                    <div class="form-group"></div>
                     <label>Enter Username</label>
                     <input class="form-control" id="username" cols="10" rows="10" />
                     <br>
@@ -38,19 +39,27 @@
             <div class="col-md-4">
                 <div class="well">
                     <h3>Online Users</h3>
-                    <ul class="list-group" id="users">
-                    </ul>
+                    <ul class="list-group" id="users"></ul>
                 </div>
 
             </div>
             <div class="col-md-8">
                 <div class="chat" id="chat"></div>
+                <form id="messageForm">
+                    <div class="form-group">
+                        <lable>Enter Message</lable>
+                        <textarea class="form-control" id="message"></textarea>
+                        <br />
+                        <input type="submit" class="btn btn-primary" value="Send Message" />
+                    </div>
+                </form>
 
             </div>
         </div>
     </div>
 
     <script>
+
         (function() {
             var socket = io.connect();
             var $messageForm = $('#messageForm');
@@ -58,6 +67,7 @@
             var $chat = $('#chat');
             var $messageArea = $('#messageArea')
             var $userFormArea = $('#userFormArea')
+            var $userForm = $('userForm')
             var $users = $('#users')
             var $username = $('#username');
 
@@ -69,6 +79,8 @@
             socket.on('new message', function(data) {
                 $chat.append('<div class="well"><strong>' + date.user + '</strong>: ' + data.msg + '</div>');
             });
+
+
             $userForm.submit(function(e) {
                 e.preventDefault();
                 socket.emit('new user', $username.val(), function(data) {
@@ -86,7 +98,7 @@
                 }
                 $users.html(html);
             })
-        });
+        })();
     </script>
 </body>
 
