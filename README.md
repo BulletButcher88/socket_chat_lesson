@@ -6,11 +6,12 @@ Simple chat app that uses Socket.io
 
 Install Dependencies
 
-npm install 
+`npm install` 
 
 Run Server
 
-npm start
+`npm start`
+
 Run App
 
 This project is a code along by Brad Traversy, https://github.com/bradtraversy
