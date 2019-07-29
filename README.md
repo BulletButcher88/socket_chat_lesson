@@ -1,10 +1,14 @@
-#STUDYING SOCKET>IO
+# STUDYING SOCKET.IO
 
-I have decided to use a WebSocket for another app, but we only tocked on Node.js so far in my course. 
+I want to use a WebSocket for my music app, the gunky_app, a topic not in my course so far. Adverture time!!
 
-This is a code along I did to this youtube video on how to make an online messaging app using socket.io.
+This project is a code along to this youtube tutorial, for making an socket.io messaging app
 https://www.youtube.com/watch?v=tHbCkikFfDE
 
-I am unable to make it work at this stage, with errors seem to be with my node bundle, require, or my Json setup file.
+I wasn't unable to get it working, my errors are point me to node bundle, require, or my Json setup file.
 
-### Updates on progress...
+### next step...
+more reading: https://www.valentinog.com/blog/socket-react/
+
+keep debugging... 
+
